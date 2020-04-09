@@ -60,3 +60,5 @@ console.log(validator.isEmail('anirup049@gmail.com')) // will return true
 console.log(validator.isEmail('anirup049@gmail'))     // will return false
 console.log(validator.isURL('https://stage.rapidobuild.com/')) // will return true
 console.log(validator.isURL('https://stage.rapidobuild.com1/')) // will return false
+
+
