@@ -175,8 +175,15 @@ yargs.command({
 yargs.command({
     command: 'read',
     describe: 'Reading a note',
-    handler() {
-        console.log('Note Read !')
+    builder: {
+        title: {
+            describe: 'Read title',
+            demandOption: true
+        }
+    },
+    handler(argv) {
+        //console.log('Note Read !')
+        getNotesFn.readNote(argv.title)
     }
 })
 //console.log(yargs.argv)
@@ -207,3 +214,11 @@ yargs.parse() // it will parse all the yargs.. we can use this in place of conso
 // "Your Notes" using chalk
 // Print Notes title for each note
 // Call listNotes from command handler
+
+// Wire up read command
+// Set up --title option for read command
+// Create readNote in notes.js
+// Search for note by title
+// Find note and print title (styled) and body(plain)
+// No note found ? Print error in red
+// Have the command handler call the function

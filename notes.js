@@ -8,6 +8,18 @@ const getNots = () => {
 const addNotes = (title, body) => {
     const notes = loadNotes()
     if(notes.length > 0) {
+        // filter is going to go through all the records af the arraybundleRenderer.
+        // but thats something we dont want.
+        // we can use find instead of filter
+        const duplicateNote = notes.find((note) => {
+            if(note.title === title) {
+                return true
+            } else {
+                return false
+            }
+        })
+        // after this duplicateNote array will contain the duplicate record
+        // else it will be undefined
         const duplicateNotes = notes.filter((note) => {
             if(note.title === title) {
                 return true
@@ -52,6 +64,20 @@ const removeNote = (title) => {
     saveNotes(notesToKeep)
 }
 
+const readNote = (title) => {
+    console.log(title)
+    const notes = loadNotes()
+    const findNote = notes.find((note) => note.title === title )
+    console.log('-------Lets see what we have found------')
+    if(findNote) {
+        console.log(chalk.green.inverse(findNote.title))
+        console.log(chalk.green.inverse(findNote.body))
+    } else {
+        console.log(chalk.red.inverse('Note not found !'))
+    }
+    
+}
+
 const listNotes = () => {
     const notes = loadNotes()
     console.log(chalk.inverse('Your Notes'))
@@ -84,5 +110,6 @@ module.exports = {
     getNots: getNots,
     addNotes: addNotes,
     removeNote: removeNote,
-    listNotes: listNotes
+    listNotes: listNotes,
+    readNote: readNote
 }
