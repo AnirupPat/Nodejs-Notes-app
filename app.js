@@ -165,7 +165,8 @@ yargs.command({
     command: 'list',
     describe: 'Listing a note',
     handler() {
-        console.log('Note listed !')
+       // console.log('Note listed !')
+        getNotesFn.listNotes()
     }
 })
 //console.log(yargs.argv)
@@ -201,3 +202,8 @@ yargs.parse() // it will parse all the yargs.. we can use this in place of conso
 
 // Refactor all functions
 // If function is a method, use ES6 method defination syntax
+
+// Create and export listNotes from notes.js
+// "Your Notes" using chalk
+// Print Notes title for each note
+// Call listNotes from command handler
