@@ -119,12 +119,12 @@ yargs.command({
     builder: {
         title: {
             describe: 'Note title',
-            demand: true, // to make tht title argument mandatory
+            demandOption: true, // to make tht title argument mandatory
             type: 'string'
         },
         body: {
             describe: 'Note body',
-            demand: true,
+            demandOption: true,
             type: 'string'
         }
     },
@@ -144,8 +144,15 @@ yargs.command({
 yargs.command({
     command: 'remove',
     describe: 'To remove a note',
-    handler: function() {
-        console.log('removing a note !')
+    builder: {
+        title: {
+            describe: 'Remove the title',
+            demandOption: true
+        }
+    },
+    handler: function(argv) {
+      //  console.log('removing a note !')
+      getNotesFn.removeNote(argv.title)
     }
 })
 //console.log(yargs.argv)
@@ -178,5 +185,15 @@ yargs.parse() // it will parse all the yargs.. we can use this in place of conso
 // set up a body option for the add command
 // Configure a description, make it required and for it to be string
 // Log the body value in the handler function
+
+// Set up the remove command to take the required title option
+// create and export a remove note function in notes.js
+// call removeNote in remove command handler
+// Have removeNote log the title of the note to be removed
+// Test your work using : node app.js remove --title="some title"
+
+// Use Chalk to provide useful logs for remove
+// If a note is removed, print 'Note removed' with a green background
+// If no note is  removed, print 'No note removed' with a red background
 
 
