@@ -128,7 +128,10 @@ yargs.command({
             type: 'string'
         }
     },
-    handler: function(argv) {
+
+    // these are all methods so we are defining methods directly in an object
+    // so we will use the ES6 short hand syntax
+    handler(argv) {
         // console.log('Adding a new note !', argv.title)
         // console.log('Adding body to new note', argv.body)
         // instead of these console statements, we can call the methods in notes.ts file
@@ -150,7 +153,7 @@ yargs.command({
             demandOption: true
         }
     },
-    handler: function(argv) {
+    handler(argv) {
       //  console.log('removing a note !')
       getNotesFn.removeNote(argv.title)
     }
@@ -161,7 +164,7 @@ yargs.command({
 yargs.command({
     command: 'list',
     describe: 'Listing a note',
-    handler: function() {
+    handler() {
         console.log('Note listed !')
     }
 })
@@ -171,7 +174,7 @@ yargs.command({
 yargs.command({
     command: 'read',
     describe: 'Reading a note',
-    handler: function() {
+    handler() {
         console.log('Note Read !')
     }
 })
@@ -196,4 +199,5 @@ yargs.parse() // it will parse all the yargs.. we can use this in place of conso
 // If a note is removed, print 'Note removed' with a green background
 // If no note is  removed, print 'No note removed' with a red background
 
-
+// Refactor all functions
+// If function is a method, use ES6 method defination syntax
