@@ -43,3 +43,20 @@ console.log(sum)
 const getNotesFn = require('./notes.js')
 console.log(getNotesFn())
 
+
+// importing npm modules
+// run npm -v and see the version.
+// then run npm init and it wil ask few questions to which we have to click on enter
+// the package.json file will be created.
+
+// goto npmjs.com and search for validator package 
+// then lets install the validator package using npm i validator 
+// with this a new foler gets created named : package-lock.json, node-modules, 
+// and a new object in the package.json named dependencies
+// node_modules folder will have all the packages installed in the project 
+
+const validator = require('validator')
+console.log(validator.isEmail('anirup049@gmail.com')) // will return true
+console.log(validator.isEmail('anirup049@gmail'))     // will return false
+console.log(validator.isURL('https://stage.rapidobuild.com/')) // will return true
+console.log(validator.isURL('https://stage.rapidobuild.com1/')) // will return false
