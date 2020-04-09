@@ -41,7 +41,7 @@ console.log(sum)
 // export the function from notes.js
 // print the message here 
 const getNotesFn = require('./notes.js')
-console.log(getNotesFn())
+//console.log(getNotesFn())
 
 
 // importing npm modules
@@ -129,8 +129,10 @@ yargs.command({
         }
     },
     handler: function(argv) {
-        console.log('Adding a new note !', argv.title)
-        console.log('Adding body to new note', argv.body)
+        // console.log('Adding a new note !', argv.title)
+        // console.log('Adding body to new note', argv.body)
+        // instead of these console statements, we can call the methods in notes.ts file
+        getNotesFn.addNotes(argv.title, argv.body)
     }
 })
 //console.log(yargs.argv)
