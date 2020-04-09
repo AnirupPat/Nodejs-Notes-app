@@ -83,7 +83,7 @@ console.log(chalk.green.inverse.bold('Success'))
 
 // File system and command line args
 // try to run : node app.js Anirup (here Anirup is passed as an argument)
-console.log(process.argv)
+//console.log(process.argv)
 
 // run with : node app.js add 
 // node app.js remove
@@ -95,4 +95,86 @@ if(command === 'add') {
 }
 
 // try this : node app.js --title="New title !"
+
+
+// Agrument parsing with Yargs
+// add yargs module to project : npm i yargs
+
+const yargs = require('yargs')
+console.log('lets test yargs')
+//console.log(yargs.argv)
+
+// run this: node app.js add --title="Anirup"
+// run: node app.js --help
+// run: node app.js --version
+
+// customize yargs version
+yargs.version('2.1.0')
+//console.log(yargs.argv)
+
+// Create add command
+yargs.command({
+    command: 'add',
+    describe: 'Add a new note',
+    builder: {
+        title: {
+            describe: 'Note title',
+            demand: true, // to make tht title argument mandatory
+            type: 'string'
+        },
+        body: {
+            describe: 'Note body',
+            demand: true,
+            type: 'string'
+        }
+    },
+    handler: function(argv) {
+        console.log('Adding a new note !', argv.title)
+        console.log('Adding body to new note', argv.body)
+    }
+})
+//console.log(yargs.argv)
+
+// Run: node app.js --help
+// Run: node app.js add
+
+// Create remove command
+yargs.command({
+    command: 'remove',
+    describe: 'To remove a note',
+    handler: function() {
+        console.log('removing a note !')
+    }
+})
+//console.log(yargs.argv)
+
+// Create list command
+yargs.command({
+    command: 'list',
+    describe: 'Listing a note',
+    handler: function() {
+        console.log('Note listed !')
+    }
+})
+//console.log(yargs.argv)
+
+// Create read command
+yargs.command({
+    command: 'read',
+    describe: 'Reading a note',
+    handler: function() {
+        console.log('Note Read !')
+    }
+})
+//console.log(yargs.argv)
+
+// now to all these commands above we need to add the builder property
+
+yargs.parse() // it will parse all the yargs.. we can use this in place of console.log
+
+// Add an options to yargs
+// set up a body option for the add command
+// Configure a description, make it required and for it to be string
+// Log the body value in the handler function
+
 
