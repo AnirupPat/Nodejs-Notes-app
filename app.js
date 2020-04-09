@@ -81,4 +81,18 @@ console.log(chalk.green.inverse.bold('Success'))
 // nodemon is to restart the script.. but for this we need to run as: nodemon app.js 
 // instead of node app.js
 
+// File system and command line args
+// try to run : node app.js Anirup (here Anirup is passed as an argument)
+console.log(process.argv)
+
+// run with : node app.js add 
+// node app.js remove
+const command = process.argv[2]
+if(command === 'add') {
+    console.log('Adding Notes !')
+} else if(command === 'remove') {
+    console.log('Removing note !')
+}
+
+// try this : node app.js --title="New title !"
 
