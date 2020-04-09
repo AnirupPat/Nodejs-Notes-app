@@ -62,3 +62,12 @@ console.log(validator.isURL('https://stage.rapidobuild.com/')) // will return tr
 console.log(validator.isURL('https://stage.rapidobuild.com1/')) // will return false
 
 
+// use the chalk lib in ur project
+// install 2.4.1 of chalk
+// load chalk into app.js
+// use to print success in green
+const chalk = require('chalk')
+console.log(chalk.green('Success'))
+console.log(chalk.bold.green('Success'))
+console.log(chalk.green.bold('Success'))
+console.log(chalk.green.inverse.bold('Success'))
