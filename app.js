@@ -71,3 +71,14 @@ console.log(chalk.green('Success'))
 console.log(chalk.bold.green('Success'))
 console.log(chalk.green.bold('Success'))
 console.log(chalk.green.inverse.bold('Success'))
+
+// chalk and validators are locally installed modules 
+
+
+// global npm modules and packages
+// install module nodemon using command : sudo npm i nodemon -g
+// nodemon is for running the process and see the changes when we save the file..
+// nodemon is to restart the script.. but for this we need to run as: nodemon app.js 
+// instead of node app.js
+
+
