@@ -222,3 +222,19 @@ yargs.parse() // it will parse all the yargs.. we can use this in place of conso
 // Find note and print title (styled) and body(plain)
 // No note found ? Print error in red
 // Have the command handler call the function
+
+// Debug Nodejs applications
+// we have to run a different command: node inspect <and then rest of command>
+// inspect is the extra thing that we need to add
+// put a debugger in one of the lines and run the below command :
+// node inspect app.js add --title="t" --body="b"
+// open chrome and type : chrome://inspect
+// Node debugger uses the built in V8 debugger tool that means \
+// Chrome which also uses the V8 can also be used to inspect the Node app
+// Under target click on inspect, if there is nothing under targets,
+// then we have to configure it and refresh it
+// then we have to click on add file system and select the root application
+// then click on f8 and it will reach to the debugger point 
+
+// if this command :node inspect app.js add --title="t" --body="b" throws an error
+// then use: node --inspect-brk app.js  add --title="t" --body="b"
