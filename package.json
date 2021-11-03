@@ -18,7 +18,7 @@
   "homepage": "https://github.com/AnirupPat/Nodejs-Notes-app#readme",
   "dependencies": {
     "chalk": "^2.4.1",
-    "validator": "^13.0.0",
+    "validator": "^13.7.0",
     "yargs": "^15.3.1"
   }
 }
